@@ -34,6 +34,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		                                                    target: self,
 		                                                    action: #selector(openTapped))
 		
+		let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace,
+		                             target: nil,
+		                             action: nil)
+		let refresh = UIBarButtonItem(barButtonSystemItem: .Refresh,
+		                              target: webView,
+		                              action: #selector(webView.reload))
+		
+		toolbarItems = [spacer, refresh]
+		navigationController?.toolbarHidden = false
+		
 	}
 	
 	func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
