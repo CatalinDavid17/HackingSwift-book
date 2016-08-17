@@ -14,13 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 	var window: UIWindow?
 
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+		
+		[NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
 		let splitViewController = self.window!.rootViewController as! UISplitViewController
 		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
 		navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
 		splitViewController.delegate = self
+		
+		//create a new MasterViewController for the tabBarController by code
+		let tabBarController = splitViewController.viewControllers[0] as! UITabBarController
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let vc = storyboard.instantiateViewControllerWithIdentifier("NavController") as! UINavigationController
+		vc.tabBarItem = UITabBarItem(tabBarSystemItem: .TopRated, tag: 1)
+		
+		tabBarController.viewControllers?.append(vc)
+		
 		return true
+		
 	}
 
 	func applicationWillResignActive(application: UIApplication) {
