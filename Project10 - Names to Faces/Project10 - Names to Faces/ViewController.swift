@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+	
 	@IBOutlet weak var collectionView: UICollectionView!
 	
-	override func viewDidLoad() {
+	var people = [CDPerson]()
 	
+	override func viewDidLoad() {
+		
 		super.viewDidLoad()
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add,
@@ -70,6 +72,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 			jpegData.writeToFile(imagePath, atomically: true)
 		}
 		
+		let person = CDPerson(name: "Unknown", image: imageName)
+		people.append(person)
+		collectionView.reloadData()
+		
 		dismissViewControllerAnimated(true, completion: nil)
 		
 	}
@@ -78,15 +84,47 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		
-		return 10
+		return people.count
 		
 	}
 	
-	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath
+							 indexPath: NSIndexPath) -> UICollectionViewCell {
 		
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Person", forIndexPath: indexPath) as! CDPersonCell
 		
+		let person = people[indexPath.item]
+		
+		cell.name.text = person.name
+		
+		let path = getDocumentsDirectory().stringByAppendingPathComponent(person.image)
+		cell.imageView.image = UIImage(contentsOfFile: path)
+		
+		cell.imageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
+		cell.imageView.layer.borderWidth = 2
+		cell.imageView.layer.cornerRadius = 3
+		cell.layer.cornerRadius = 7
+		
 		return cell
+		
+	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		
+		let person = people[indexPath.item]
+		
+		let alertController = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .Alert)
+		alertController.addTextFieldWithConfigurationHandler(nil)
+		
+		alertController.addAction(UIAlertAction(title: "OK", style: .Default) {
+			[unowned self, alertController] _ in
+			let newName = alertController.textFields![0]
+			person.name = newName.text!
+			
+			self.collectionView.reloadData()
+		})
+		
+		presentViewController(alertController, animated: true, completion: nil)
 		
 	}
 	
