@@ -19,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6558EF01D6F31AC000CA20F /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		B6558EF11D6F31AC000CA20F /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		B693790A1D6C812D00D49D97 /* Project14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B693790D1D6C812D00D49D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B693790F1D6C812D00D49D97 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -72,6 +74,8 @@
 				B693791D1D6C812D00D49D97 /* Info.plist */,
 				B69379231D6C85BE00D49D97 /* Helper.swift */,
 				B69379251D6C889C00D49D97 /* WhackSlot.swift */,
+				B6558EF01D6F31AC000CA20F /* whack.caf */,
+				B6558EF11D6F31AC000CA20F /* whackBad.caf */,
 			);
 			path = Project14;
 			sourceTree = "<group>";
@@ -304,6 +308,7 @@
 				B69379221D6C812D00D49D97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
