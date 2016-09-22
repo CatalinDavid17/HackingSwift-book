@@ -19,6 +19,9 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
 	
+	var player: SKSpriteNode!
+	var lastTouchPosition: CGPoint?
+	
     override func didMoveToView(view: SKView) {
 		let background = SKSpriteNode(imageNamed: "background.jpg")
 		background.position = CGPoint(x: 512, y: 384)
@@ -27,14 +30,38 @@ class GameScene: SKScene {
 		addChild(background)
 		
 		loadLevel()
+		createPlayer()
+		
+		physicsWorld.gravity = CGVector(dx: 0, dy: 0)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		if let touch = touches.first {
+			let location = touch.locationInNode(self)
+			lastTouchPosition = location
+		}
+	}
 	
+	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		if let touch = touches.first {
+			let location = touch.locationInNode(self)
+			lastTouchPosition = location
+		}
+	}
+	
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		lastTouchPosition = nil
+	}
+	
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+		lastTouchPosition = nil
 	}
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+		if let currentTouch = lastTouchPosition {
+			let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
+			physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
+		}
     }
 	
 }
@@ -47,10 +74,11 @@ extension GameScene {
 				
 				for (row, line) in lines.reverse().enumerate() {
 					for (column, letter) in line.characters.enumerate() {
-						let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
+						let position = CGPoint(x: (64 * column) + 35, y: (46 * row) + 130)
 						
 						if letter == "x" {
 							let node = SKSpriteNode(imageNamed: "block")
+							node.size = CGSize(width: 64, height: 45)
 							node.position = position
 							node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size)
 							node.physicsBody!.categoryBitMask = CollisionTypes.Wall.rawValue
@@ -70,6 +98,7 @@ extension GameScene {
 						} else if letter == "s" {
 							let node = SKSpriteNode(imageNamed: "star")
 							node.name = "star"
+							node.size = CGSize(width: 45, height: 45)
 							node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
 							node.physicsBody!.dynamic = false
 							node.physicsBody!.categoryBitMask = CollisionTypes.Star.rawValue
@@ -80,6 +109,7 @@ extension GameScene {
 						} else if letter == "f" {
 							let node = SKSpriteNode(imageNamed: "finish")
 							node.name = "finish"
+							node.size = CGSize(width: 45, height: 45)
 							node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
 							node.physicsBody!.dynamic = false
 							node.physicsBody!.categoryBitMask = CollisionTypes.Finish.rawValue
@@ -92,5 +122,19 @@ extension GameScene {
 				}
 			}
 		}
+	}
+	
+	private func createPlayer() {
+		player = SKSpriteNode(imageNamed: "player")
+		player.size = CGSize(width: 40, height: 40)
+		player.position = CGPoint(x: 90, y: 620)
+		player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
+		player.physicsBody!.allowsRotation = false
+		player.physicsBody!.linearDamping = 0.5
+		
+		player.physicsBody!.categoryBitMask = CollisionTypes.Player.rawValue
+		player.physicsBody!.contactTestBitMask = CollisionTypes.Star.rawValue | CollisionTypes.Vortex.rawValue | CollisionTypes.Finish.rawValue
+		player.physicsBody!.collisionBitMask = CollisionTypes.Wall.rawValue
+		addChild(player)
 	}
 }
