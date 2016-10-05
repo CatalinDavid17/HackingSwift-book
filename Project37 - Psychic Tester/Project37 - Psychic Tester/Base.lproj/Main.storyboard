@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project37___Psychic_Tester" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gh7-qT-pwM" customClass="GradientView" customModule="Project37___Psychic_Tester" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomCollor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTy-D2-BWp">
+                                <rect key="frame" x="60" y="140" width="480" height="320"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="0EG-R1-znk"/>
+                                    <constraint firstAttribute="height" constant="320" id="UmQ-5V-IeE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QTy-D2-BWp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9XU-dd-oze"/>
+                            <constraint firstItem="Gh7-qT-pwM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lg4-9H-hPP"/>
+                            <constraint firstItem="Gh7-qT-pwM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Tgf-rm-uwH"/>
+                            <constraint firstAttribute="trailing" secondItem="Gh7-qT-pwM" secondAttribute="trailing" id="VQr-9u-18l"/>
+                            <constraint firstItem="QTy-D2-BWp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b05-qm-w6f"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gh7-qT-pwM" secondAttribute="bottom" id="niG-5L-VjR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardContainer" destination="QTy-D2-BWp" id="l0Q-cG-Vqa"/>
+                        <outlet property="gradientView" destination="Gh7-qT-pwM" id="73p-zL-FNU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="290" y="463"/>
+        </scene>
+    </scenes>
+</document>

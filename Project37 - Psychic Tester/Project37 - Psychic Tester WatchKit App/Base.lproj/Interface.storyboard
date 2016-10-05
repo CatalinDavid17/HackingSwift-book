@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project37___Psychic_Tester_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" verticalAlignment="center" text="Please read the instructions on your phone before continuing." textAlignment="center" numberOfLines="0" id="5vi-rA-fgo"/>
+                        <button width="1" alignment="left" verticalAlignment="center" title="I'm Ready" id="Uw3-eX-Ayn">
+                            <connections>
+                                <action selector="buttonTapped" destination="AgC-eL-Hgc" id="tZ3-VW-xAN"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="hideButton" destination="Uw3-eX-Ayn" id="dvC-Un-Qwg"/>
+                        <outlet property="welcomeText" destination="5vi-rA-fgo" id="mmT-2k-8ca"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
