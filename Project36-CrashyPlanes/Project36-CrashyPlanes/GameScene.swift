@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var backgroundMusic: SKAudioNode!
 	var logo: SKSpriteNode!
 	var gameOver: SKSpriteNode!
-	var timer: NSTimer!
+	//var timer: NSTimer!
 	var rockDistance: CGFloat = 67
 	var gameState = GameState.ShowingLogo
 	var duration: NSTimeInterval = 5.8
@@ -62,7 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 				self.initRocks()
 			}
 
-			timer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(increaseDifficulty), userInfo: nil, repeats: true)
+			//timer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(increaseDifficulty), userInfo: nil, repeats: true)
 			
 			let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
 			logo.runAction(sequence)
@@ -71,10 +71,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			player.physicsBody?.velocity = CGVectorMake(0, 0)
 			player.physicsBody?.applyImpulse(CGVectorMake(0, 20))
 		case .Dead:
-			let scene = GameScene(fileNamed: "GameScene")!
-			scene.scaleMode = .ResizeFill
-			let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Right, duration: 1)
-			self.view?.presentScene(scene, transition: transition)
+			if let scene = GameScene(fileNamed: "GameScene") {
+				scene.scaleMode = .ResizeFill
+				let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Right, duration: 1)
+				self.view?.presentScene(scene, transition: transition)
+			}
     	}
 	}
 	
@@ -123,10 +124,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			player.removeFromParent()
 			speed = 0
 		}
-	}
-	
-	deinit {
-		timer.invalidate()
 	}
 }
 
@@ -262,7 +259,8 @@ extension GameScene {
 			self.createRocks()
 		}
 		
-		let wait = SKAction.waitForDuration(3)
+		let timer = RandomDouble(min: 1.0, max: 3.0)
+		let wait = SKAction.waitForDuration(timer)
 		let sequence = SKAction.sequence([create, wait])
 		let repeatForever = SKAction.repeatActionForever(sequence)
 		

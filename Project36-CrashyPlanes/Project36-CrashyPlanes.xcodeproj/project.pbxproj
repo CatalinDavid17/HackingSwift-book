@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B660057A1DAFE46D00C44729 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9F2A1DA3EA63008902D3 /* GameScene.swift */; };
 		B69D9F271DA3EA63008902D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9F261DA3EA63008902D3 /* AppDelegate.swift */; };
 		B69D9F291DA3EA63008902D3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F281DA3EA63008902D3 /* GameScene.sks */; };
-		B69D9F2B1DA3EA63008902D3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9F2A1DA3EA63008902D3 /* GameScene.swift */; };
 		B69D9F2D1DA3EA63008902D3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D9F2C1DA3EA63008902D3 /* GameViewController.swift */; };
 		B69D9F301DA3EA63008902D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F2E1DA3EA63008902D3 /* Main.storyboard */; };
 		B69D9F321DA3EA63008902D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F311DA3EA63008902D3 /* Assets.xcassets */; };
@@ -19,6 +19,7 @@
 		B69D9F441DA3EAC9008902D3 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F3F1DA3EAC9008902D3 /* music.m4a */; };
 		B69D9F451DA3EAC9008902D3 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F401DA3EAC9008902D3 /* PlayerExplosion.sks */; };
 		B69D9F461DA3EAC9008902D3 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B69D9F411DA3EAC9008902D3 /* spark.png */; };
+		B6F9C6651DAFDC8800296221 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9C6641DAFDC8800296221 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B69D9F3F1DA3EAC9008902D3 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
 		B69D9F401DA3EAC9008902D3 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
 		B69D9F411DA3EAC9008902D3 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		B6F9C6641DAFDC8800296221 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				B69D9F311DA3EA63008902D3 /* Assets.xcassets */,
 				B69D9F331DA3EA63008902D3 /* LaunchScreen.storyboard */,
 				B69D9F361DA3EA63008902D3 /* Info.plist */,
+				B6F9C6641DAFDC8800296221 /* Helper.swift */,
 			);
 			path = "Project36-CrashyPlanes";
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 				TargetAttributes = {
 					B69D9F221DA3EA63008902D3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 872C7TWV9H;
+						DevelopmentTeam = 869P566QEF;
 					};
 				};
 			};
@@ -171,9 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69D9F2B1DA3EA63008902D3 /* GameScene.swift in Sources */,
 				B69D9F2D1DA3EA63008902D3 /* GameViewController.swift in Sources */,
 				B69D9F271DA3EA63008902D3 /* AppDelegate.swift in Sources */,
+				B660057A1DAFE46D00C44729 /* GameScene.swift in Sources */,
+				B6F9C6651DAFDC8800296221 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +294,7 @@
 				INFOPLIST_FILE = "Project36-CrashyPlanes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.svhackingwithswift.Project36-CrashyPlanes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.svhackingwithswift.CrashyPlanes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -303,7 +307,7 @@
 				INFOPLIST_FILE = "Project36-CrashyPlanes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.svhackingwithswift.Project36-CrashyPlanes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.svhackingwithswift.CrashyPlanes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -327,6 +331,7 @@
 				B69D9F3B1DA3EA63008902D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

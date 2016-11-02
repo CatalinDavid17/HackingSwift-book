@@ -227,17 +227,17 @@ extension GameScene {
 		gameScore = SKLabelNode(fontNamed: "Chalkduster")
 		gameScore.text = "Score: 0"
 		gameScore.horizontalAlignmentMode = .Left
-		gameScore.fontSize = 48
+		gameScore.fontSize = 32
 		
 		addChild(gameScore)
 		
-		gameScore.position = CGPoint(x: 8, y: 8)
+		gameScore.position = CGPoint(x: 80, y: 100)
 	}
 	
 	private func createLives() {
 		for i in 0..<3 {
 			let spriteNode = SKSpriteNode(imageNamed: "sliceLife")
-			spriteNode.position = CGPoint(x: CGFloat(834 + (i * 70)), y: 720)
+			spriteNode.position = CGPoint(x: CGFloat(774 + (i * 70)), y: 620)
 			
 			addChild(spriteNode)
 			

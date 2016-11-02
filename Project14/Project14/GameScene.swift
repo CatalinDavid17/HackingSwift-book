@@ -82,8 +82,9 @@ class GameScene: SKScene {
 		
 		gameScore = SKLabelNode(fontNamed: "Chalkduster")
 		gameScore.text = "Score: 0"
-		gameScore.position = CGPoint(x: 122, y: 8)
-		gameScore.fontSize = 48
+		gameScore.position = CGPoint(x: 134, y: 100)
+		gameScore.fontSize = 32
+		gameScore.zPosition = 2
 		addChild(gameScore)
 		
 		for i in 0 ..< 5 {

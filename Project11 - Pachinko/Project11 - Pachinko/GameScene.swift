@@ -47,26 +47,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
 		physicsWorld.contactDelegate = self
 		
-		makeSlotAt(CGPoint(x: 128, y: 0), isGood: true)
-		makeSlotAt(CGPoint(x: 384, y: 0), isGood: false)
-		makeSlotAt(CGPoint(x: 640, y: 0), isGood: true)
-		makeSlotAt(CGPoint(x: 896, y:0), isGood: false)
+		makeSlotAt(CGPoint(x: 128, y: 100), isGood: true)
+		makeSlotAt(CGPoint(x: 384, y: 100), isGood: false)
+		makeSlotAt(CGPoint(x: 640, y: 100), isGood: true)
+		makeSlotAt(CGPoint(x: 896, y: 100), isGood: false)
 		
-		makeBouncerAt(CGPoint(x: 0, y: 0))
-		makeBouncerAt(CGPoint(x: 256, y: 0))
-		makeBouncerAt(CGPoint(x: 512, y: 0))
-		makeBouncerAt(CGPoint(x: 768, y: 0))
-		makeBouncerAt(CGPoint(x: 1024, y: 0))
+		makeBouncerAt(CGPoint(x: 0, y: 100))
+		makeBouncerAt(CGPoint(x: 256, y: 100))
+		makeBouncerAt(CGPoint(x: 512, y: 100))
+		makeBouncerAt(CGPoint(x: 768, y: 100))
+		makeBouncerAt(CGPoint(x: 1024, y: 100))
 		
 		scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
 		scoreLabel.text = "Score: 0"
 		scoreLabel.horizontalAlignmentMode = .Right
-		scoreLabel.position = CGPoint(x: 980, y: 700)
+		scoreLabel.position = CGPoint(x: 980, y: 640)
 		addChild(scoreLabel)
 		
 		editLabel = SKLabelNode(fontNamed: "Chalkduster")
 		editLabel.text = "Edit"
-		editLabel.position = CGPoint(x: 80, y: 700)
+		editLabel.position = CGPoint(x: 80, y: 640)
 		addChild(editLabel)
 		
 	}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eBX-Ka-SAE">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project31___MultiBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5y-SY-QtU">
+                                <rect key="frame" x="5" y="69" width="590" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wSd-UN-JHm"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2vs-YH-mfl">
+                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2vs-YH-mfl" firstAttribute="top" secondItem="d5y-SY-QtU" secondAttribute="bottom" constant="5" id="AjT-Xp-Yp7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2vs-YH-mfl" secondAttribute="bottom" id="Bxx-E4-ei4"/>
+                            <constraint firstItem="2vs-YH-mfl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JkL-Dj-1fX"/>
+                            <constraint firstItem="2vs-YH-mfl" firstAttribute="top" secondItem="d5y-SY-QtU" secondAttribute="bottom" constant="5" id="LA9-fu-wgG"/>
+                            <constraint firstAttribute="trailing" secondItem="2vs-YH-mfl" secondAttribute="trailing" id="YGz-WI-qLl"/>
+                            <constraint firstAttribute="trailing" secondItem="d5y-SY-QtU" secondAttribute="trailing" constant="5" id="ZUx-zc-07R"/>
+                            <constraint firstItem="d5y-SY-QtU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="e29-SL-SHh"/>
+                            <constraint firstItem="d5y-SY-QtU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="fxD-1D-bnd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wdt-Pp-1TR"/>
+                    <connections>
+                        <outlet property="addressbar" destination="d5y-SY-QtU" id="BfG-Yt-XbB"/>
+                        <outlet property="stackView" destination="2vs-YH-mfl" id="4IO-wd-Cz1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="503"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="85q-TY-y5z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eBX-Ka-SAE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qMT-Rd-ajJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sHp-z9-7G7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv2-8j-OaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296" y="1139"/>
+        </scene>
+    </scenes>
+</document>
